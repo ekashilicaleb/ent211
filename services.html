@@ -1,0 +1,115 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | STARTBRIDE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>STARTBRIDGE</h1>
+    <nav>
+      <ul id="navMenu"></ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main class="services-section">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-lightbulb service-icon"></i>
+        <h3>Startup Pitch Showcase</h3>
+        <p>Showcase your innovative ideas to our network of investors. Get visibility, funding, and growth support.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-user-tie service-icon"></i>
+        <h3>Investor Matchmaking</h3>
+        <p>We connect visionary startups with investors looking for high-potential opportunities.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-chart-line service-icon"></i>
+        <h3>Business Growth Tools</h3>
+        <p>Access resources, templates, mentorship, and analytics to drive your startup to the next level.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-comments service-icon"></i>
+        <h3>Consultation Services</h3>
+        <p>Book sessions with experienced mentors and investors to refine your pitch and strategy.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>STARTBRIDGE. All rights reserved</p>
+  </footer>
+  <script>
+    const role = localStorage.getItem('userRole');
+    if (!role) window.location.href = 'index.html';
+  
+    const navMenu = document.getElementById('navMenu');
+  
+    navMenu.innerHTML = role === 'startup'
+      ? `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `
+      : `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+  
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('show');
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('show');
+    }
+
+    const role = localStorage.getItem('userRole');
+    if (!role) window.location.href = 'index.html';
+
+    const navMenu = document.getElementById('navMenu');
+    navMenu.innerHTML = role === 'startup'
+      ? `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `
+      : `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

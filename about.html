@@ -1,0 +1,140 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | STARTBRIDE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>STARTBRIDGE</h1>
+    <nav>
+      <ul id="navMenu"></ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main class="about-section">
+    <div class="about-content">
+      <h2>About STARTBRIDGE</h2>
+      <p>We bridge the gap between startups and investors, accelerating innovation across Nigeria and beyond.</p>
+    </div>
+
+    <h3 class="team-title">Meet the Management Team</h3>
+    <div class="team-grid">
+      <div class="team-member">
+        <h4>David Adeola Olumorin</h4>
+        <p>Chief Executive Officer</p>
+      </div>
+      <div class="team-member">
+        <h4>Caleb Ekashili</h4>
+        <p>Chief Technology Officer</p>
+      </div>
+      <div class="team-member">
+        <h4>Buhari Danladi Bello</h4>
+        <p>Chief Financial Officer</p>
+      </div>
+      <div class="team-member">
+        <h4>Shimi Shuaibu</h4>
+        <p>Project Manager</p>
+      </div>
+      <div class="team-member">
+        <h4>Dorcas Ayuba</h4>
+        <p>Marketing Manager</p>
+      </div>
+      <div class="team-member">
+        <h4>Blessed Julius</h4>
+        <p>Logistics Manager</p>
+      </div>
+      <div class="team-member">
+        <h4>Divine Joshua</h4>
+        <p>Team Lead</p>
+      </div>
+      <div class="team-member">
+        <h4>Benjamin Dauda</h4>
+        <p>Software Developer</p>
+      </div>
+      <div class="team-member">
+        <h4>Elroi Yero</h4>
+        <p>Software Developer</p>
+      </div>
+      <div class="team-member">
+        <h4>Bobby Josiah</h4>
+        <p>Software Developer</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>STARTBRIDGE. All rights reserved</p>
+  </footer>
+  <script>
+    const role = localStorage.getItem('userRole');
+    if (!role) window.location.href = 'index.html';
+  
+    const navMenu = document.getElementById('navMenu');
+  
+    navMenu.innerHTML = role === 'startup'
+      ? `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `
+      : `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+  
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('show');
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('show');
+    }
+
+    const role = localStorage.getItem('userRole');
+    if (!role) window.location.href = 'index.html';
+
+    const navMenu = document.getElementById('navMenu');
+    navMenu.innerHTML = role === 'startup'
+      ? `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `
+      : `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STARTBRIDE | Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>STARTBRIDGE</h1>
+  </header>
+
+  <main class="login-container">
+    <h2>Welcome to STARTBRIDGE</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      
+      <select id="role" required>
+        <option value="">Login as...</option>
+        <option value="startup">Startup</option>
+        <option value="investor">Investor</option>
+      </select>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="create-account.html">Create Account</a></p>
+  </main>
+
+  <footer>
+    <p>STARTBRIDGE. All rights reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const role = document.getElementById('role').value;
+      localStorage.setItem('userRole', role);
+
+      if (role === "startup" || role === "investor") {
+        window.location.href = "home.html";
+      }
+    });
+  </script>
+</body>
+</html>

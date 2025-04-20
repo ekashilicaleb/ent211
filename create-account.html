@@ -1,0 +1,44 @@
+<!-- create-account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STARTBRIDGE | Create Account</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>STARTBRIDGE</h1>
+  </header>
+
+  <main class="login-container">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <input type="text" id="newUsername" placeholder="Username" required />
+      
+      <select id="newRole" required>
+        <option value="">Sign up as...</option>
+        <option value="startup">Startup</option>
+        <option value="investor">Investor</option>
+      </select>
+
+      <button type="submit">Create Account</button>
+    </form>
+    <p>Already have an account? <a href="index.html">Login here</a></p>
+  </main>
+
+  <footer>
+    <p>STARTBRIDGE. All rights reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const role = document.getElementById('newRole').value;
+      localStorage.setItem('userRole', role);
+      window.location.href = 'home.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STARTBRIDGE | Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>STARTBRIDGE</h1>
+    <nav>
+      <ul id="navMenu">
+        <!-- Navigation will be populated by JS -->
+      </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main>
+    <h2>Welcome to STARTBRIDGE</h2>
+    <p>Your one-stop platform to connect innovative startups with visionary investors.</p>
+  </main>
+  <!-- Hero Section with Background Image -->
+<section id="hero" style="background-image: url('succesful.jpeg'); background-size: cover; background-position: center;">
+  <div class="hero-content">
+    <h1>Welcome to STARTBRIDE</h1>
+    <p>Your Bridge to Startup Success and Investor Opportunities</p>
+    <a href="submit.html" class="cta-button">Get Started</a>
+  </div>
+</section>
+
+<!-- Startups Section with Image -->
+<section id="startups">
+  <div class="container">
+    <div class="text">
+      <h2>For Startups</h2>
+      <p>Upload your pitch and get visibility from top investors.</p>
+      <a href="submit.html" class="cta-button">Submit Your Idea</a>
+    </div>
+    <div class="image">
+      <img src="startup.jpeg" alt="Startup Team">
+    </div>
+  </div>
+</section>
+
+<!-- Investors Section with Image -->
+<section id="investors">
+  <div class="container">
+    <div class="image">
+      <img src="investor.jpeg" alt="Investor Meeting">
+    </div>
+    <div class="text">
+      <h2>For Investors</h2>
+      <p>Explore pitched ideas from talented startups looking for funding.</p>
+      <a href="investor-dashboard.html" class="cta-button">View Pitched Ideas</a>
+    </div>
+  </div>
+</section>
+
+<!-- Breakthroughs Section with Image -->
+<section id="breakthroughs">
+  <div class="container">
+    <div class="text">
+      <h2>Breakthrough Ideas</h2>
+      <p>Discover the next big thing in the startup world.</p>
+      <a href="breakthroughs.html" class="cta-button">See Breakthroughs</a>
+    </div>
+    <div class="image">
+      <img src="breakthrough.jpeg" alt="Successful Startup Launch">
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>STARTBRIDGE. All rights reserved</p>
+  </footer>
+  <script>
+    const role = localStorage.getItem('userRole');
+    if (!role) window.location.href = 'index.html';
+  
+    const navMenu = document.getElementById('navMenu');
+  
+    navMenu.innerHTML = role === 'startup'
+      ? `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `
+      : `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+  
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('show');
+    }
+  </script>
+  
+  <script>
+    const role = localStorage.getItem('userRole');
+
+    if (!role) {
+      window.location.href = "index.html";
+    }
+
+    const navMenu = document.getElementById('navMenu');
+
+    if (role === "startup") {
+      navMenu.innerHTML = `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="submit.html">Submit Idea</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+    } else {
+      navMenu.innerHTML = `
+        <li><a href="home.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+      `;
+    }
+
+    function logout() {
+      localStorage.removeItem('userRole');
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
